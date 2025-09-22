@@ -34,6 +34,49 @@
       <button class="btn-cta" onclick="document.querySelector('#donate').scrollIntoView({behavior:'smooth'})">Get Involved</button>
     </div>
   </section>
-  
+  <!-- Hero title -->
+  <header class="hero-title">
+    <div class="hero-inner">
+      <h2>Choose Your Trees</h2>
+      <p class="hero-sub">Select from categories — view details and add to your cart.</p>
+    </div>
+  </header>
+
+  <!-- Shop -->
+  <section class="shop-section" id="shop">
+    <div class="shop-wrapper">
+      <!-- Categories -->
+      <aside class="categories-column">
+        <div class="categories-card">
+          <h3 class="sidebar-title">Categories</h3>
+          <div id="categories" class="category-list"></div>
+        </div>
+      </aside>
+
+      <!-- Cards -->
+      <main class="cards-column">
+        <div class="cards-header">
+          <h3 id="current-category">All Trees</h3>
+          <div id="result-count" class="result-count"></div>
+        </div>
+
+        <div id="spinner" class="spinner hidden"></div>
+
+        <div id="plants-container" class="cards-grid"></div>
+      </main>
+
+      <!-- Cart -->
+      <aside class="cart-column">
+        <div class="cart-card">
+          <h3>Your Cart</h3>
+          <div id="cart-items" class="cart-items"></div>
+          <div id="total" class="cart-total">Total: ৳0</div>
+          <button id="checkoutBtn" class="btn-primary small" disabled>Checkout</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+
 
  
