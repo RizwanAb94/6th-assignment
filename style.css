@@ -127,5 +127,113 @@ body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:#0f172a;line-
 .cart-item{background:#f0fdf4;padding:8px;border-radius:6px;display:flex;justify-content:space-between;align-items:center}
 .cart-total{font-weight:900;color:var(--green-700);margin-top:8px}
 .btn-primary.small{margin-top:12px;padding:8px 14px;font-size:14px}
+/* ---------- SPINNER ---------- */
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--green-500);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ /* ---------- Modal ---------- */
+.modal{position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s;
+  opacity:1}
+.modal.hidden{display:none;
+  opacity:0}
+.modal-box{background:#fff;
+  border-radius:12px;
+  max-width:800px;
+  width:100%;
+  overflow:hidden;
+  transition:.3s}
+.modal-body{display:flex;
+  gap:20px;
+  padding:20px;
+  flex-wrap:wrap;
+  justify-content:center}
+.modal-body img{width:300px;height:220px;object-fit:cover;border-radius:8px}
+.modal-info h3{color:var(--green-700);margin-bottom:8px}
+.modal-close{background:transparent;border:none;font-size:28px;font-weight:700;cursor:pointer;float:right;margin:10px}
+
+/* ---- about ----- */
+.about-section{padding:60px 20px;
+  background:#fff}
+.about-inner{max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:40px}
+.about-inner img{max-width:500px;
+  border-radius:12px}
+.about-text h3{color:var(--green-700);
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:12px}
+.about-text p{color:#374151;
+  margin-bottom:12px}
+.about-text ul{margin-left:20px;
+  list-style:disc;
+  color:var(--green-500)}
+
+/* ---------- Impact ---------- */
+.impact-section{padding:60px 20px;
+  background:#ecfdf5;
+  text-align:center}
+.impact-section h3{color:var(--green-700);
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:24px}
+.impact-cards{display:flex;
+  justify-content:center;
+  gap:24px;flex-wrap:wrap}
+.impact-card{background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+  width:200px;
+  transition:.3s}
+.impact-card:hover{transform:translateY(-3px);
+  box-shadow:0 6px 16px rgba(0,0,0,.1)}
+.impact-num{font-size:24px;
+  font-weight:800;
+  color:var(--green-700)}
+.impact-desc{color:var(--muted);
+  margin-top:6px}
+
+/* ---------- donate ---------- */
+.donate-section{padding:60px 20px;
+  text-align:center}
+.donate-section h3{color:var(--green-700);
+  font-size:28px;font-weight:800;
+  margin-bottom:20px}
+.donation-form{display:flex;
+  flex-direction:column;
+  max-width:400px;
+  margin:auto;
+  gap:14px}
+.donation-form input,.donation-form select{padding:10px;   
+  border:1px solid #e5e7eb;
+  border-radius:8px}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--green-700);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  margin-top:40px}
+.footer-inner{font-size:14px}
+
 
 

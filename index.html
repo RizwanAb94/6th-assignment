@@ -34,7 +34,7 @@
       <button class="btn-cta" onclick="document.querySelector('#donate').scrollIntoView({behavior:'smooth'})">Get Involved</button>
     </div>
   </section>
-  <!-- Hero title -->
+  <!-- Hero -->
   <header class="hero-title">
     <div class="hero-inner">
       <h2>Choose Your Trees</h2>
@@ -76,6 +76,82 @@
       </aside>
     </div>
   </section>
+     <!-- MODAL -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-body">
+        <!-- ✅ fixed fallback image -->
+        <img id="modal-img" src="https://dummyimage.com/300x200/cccccc/000000&text=No+Image" alt="Plant Image" />
+        <div class="modal-info">
+          <h3 id="modal-title">Loading...</h3>
+          <p id="modal-desc"></p>
+          <p id="modal-price" class="modal-price"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-inner">
+      <div class="about-image">
+        <img src="assets/about.png" alt="Tree planting"/>
+      </div>
+      <div class="about-text">
+        <h3>About the Campaign</h3>
+        <p>Green Earth is an initiative that coordinates community tree planting, restores green cover, and supports local stewardship. We partner with volunteers and local groups to plant resilient species that support biodiversity and provide food and shade.</p>
+        <ul>
+          <li>Restore habitats and support wildlife</li>
+          <li>Improve air quality and local microclimates</li>
+          <li>Engage communities in long-term stewardship</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact" class="impact-section">
+    <h3>Our Impact</h3>
+    <div class="impact-cards">
+      <div class="impact-card">
+        <div class="impact-num">500K+</div>
+        <div class="impact-desc">Trees Planted</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">120+</div>
+        <div class="impact-desc">Communities Supported</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">30+</div>
+        <div class="impact-desc">Countries Reached</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate" class="donate-section">
+    <h3>Plant a Tree Today</h3>
+    <form id="donationForm" class="donation-form">
+      <input id="donorName" type="text" placeholder="Your Name" required />
+      <input id="donorEmail" type="email" placeholder="Your Email Address" required />
+      <select id="donationCount" required>
+        <option value="">Number of Trees</option>
+        <option value="1">1 Tree</option>
+        <option value="5">5 Trees</option>
+        <option value="10">10 Trees</option>
+      </select>
+      <button type="submit" class="btn-primary">Donate Now</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">© 2025 Green Earth. All Rights Reserved.</div>
+  </footer>
+</body>
+</html>
+
 
 
 
