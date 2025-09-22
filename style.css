@@ -234,6 +234,38 @@ body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:#0f172a;line-
   padding:16px;
   margin-top:40px}
 .footer-inner{font-size:14px}
+/* ---------- Responsive ---------- */
+@media (max-width:992px){
+  .cards-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media (max-width:768px){
+  
+  .nav-center{
+    flex-direction:column;
+    gap:0;
+  }
+  .nav-center a{
+    padding:12px 0;
+    display:block;
+  }
+  .shop-wrapper{grid-template-columns:1fr;}
+  .cart-column{display:none;}
+  .cards-grid{grid-template-columns:1fr;}
+  .about-inner{flex-direction:column;
+    text-align:center;}
+  .impact-cards{flex-direction:column;
+    align-items:center;}
+  .banner-inner h1{font-size:2rem;}
+  .banner-inner p{font-size:14px;}
+  .btn-cta,.btn-primary{padding:8px 14px;
+    font-size:14px;}
+  .modal-body img{width:100%;
+    height:auto;}
+  .donation-form{width:100%;
+    padding:0 20px;}
+}
+
 
 
 
