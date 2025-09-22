@@ -148,6 +148,80 @@ function renderPlants(plants){
     plantsContainer.appendChild(card);
   });
 }
+/* ---------- Modal ---------- */
+async function openPlantModal(id){
+  if(!id) return;
+
+  modalTitle.textContent = 'Loading...';
+  modalDesc.textContent = '';
+  modalImg.src = 'https://dummyimage.com/300x200/cccccc/000000&text=Loading...';
+  modal.classList.remove('hidden');
+  modal.removeAttribute('inert'); 
+  modal.setAttribute('aria-hidden','false');
+
+  try{
+    const res = await fetch(`https://openapi.programming-hero.com/api/plant/${id}`);
+    const plant = await res.json();
+
+    if(!plant || !plant.plants){
+      modalTitle.textContent = 'No details available';
+      modalDesc.innerHTML = '';
+      modalImg.src = 'https://dummyimage.com/300x200/cccccc/000000&text=No+Image';
+      return;
+    }
+
+    const p = plant.plants;
+    modalTitle.textContent = p.name || 'Unnamed Plant';
+    modalImg.src = safeImage(p.image);
+    const price = p.price || ((p.id ? (Number(p.id)%5+1)*100 : 150));
+    modalDesc.innerHTML = `
+      <p><strong>Category:</strong> ${esc(p.category) || 'Unknown'}</p>
+      <p><strong>Price:</strong> ৳${price}</p>
+      <p><strong>Description:</strong> ${esc(p.description) || 'No description available.'}</p>
+    `;
+  } catch(err){
+    console.error(err);
+    modalTitle.textContent = 'Failed to load details';
+    modalDesc.innerHTML = '<p>Try again later</p>';
+    modalImg.src = 'https://dummyimage.com/300x200/cccccc/000000&text=No+Image';
+  }
+}
+
+/* ---------- Modal Close ---------- */
+modalClose.addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal) closeModal();});
+function closeModal(){
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden','true');
+  modal.setAttribute('inert','true');
+  if(document.activeElement) document.activeElement.blur();
+  plantsContainer.focus();
+}
+
+/* ---------- CART ---------- */
+function addToCart(item){ 
+  cart.push(item); 
+  updateCartUI(); 
+  alert(`${item.name} has been added to your cart!`);
+}
+function removeFromCart(idx){ 
+  if(idx<0||idx>=cart.length) return; 
+  cart.splice(idx,1); 
+  updateCartUI(); 
+}
+function updateCartUI(){
+  cartItemsEl.innerHTML=''; 
+  let total=0;
+  cart.forEach((it,idx)=>{
+    total+=num(it.price);
+    const div=document.createElement('div');
+    div.className='cart-item';
+    div.innerHTML=`<span>${esc(it.name)} - ৳${num(it.price)}</span><button data-idx="${idx}"><i class="fa-regular fa-circle-xmark"></i></button>`;
+    div.querySelector('button').addEventListener('click',()=>removeFromCart(idx));
+    cartItemsEl.appendChild(div);
+  });
+  totalEl.textContent=`Total: ৳${total}`;
+  document.getElementById('checkoutBtn').disabled = cart.length===0;}
 /* ---------- Init ---------- */
 document.addEventListener('DOMContentLoaded',()=>{
   loadCategories(); 
